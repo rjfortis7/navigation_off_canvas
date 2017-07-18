@@ -93,7 +93,7 @@ $hamburger-color: #0096D9;
   grid-area: panel;
   background-color: $header-bg-op-1;
   transition: transform .3s ease-out;
-  @include panel-direction(left);
+  @include panel-direction(right);
 
   &-button {
     z-index: 999;
