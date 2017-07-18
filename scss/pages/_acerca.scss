@@ -1,0 +1,120 @@
+.About {
+  display: grid;
+  grid-template: {
+    columns: 100%;
+    rows: repeat(3, fit-content);
+  }
+  grid-gap: 2rem;
+  justify-items: center;
+}
+
+.MarathonHistory {
+  max-width: 1200px;
+  display: grid;
+  grid-template: {
+    columns: repeat(3, 1fr);
+    rows: repeat(13, fit-content);
+  }
+  grid-gap: 1vw;
+  grid-auto-flow: row dense;
+  color: #FFF;
+
+  &-item {
+    border: medium solid #FFF;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+
+    & img {
+      flex: auto;
+      object-fit: cover;
+      transition: all 1s ease-out;
+
+      &:hover { transform: scale(1.5); }
+    }
+
+    & p {
+      flex: auto;
+      padding: 1rem;
+      font-size: 3vw;
+
+      @media screen and (min-width: 64em) { font-size: 2vw; }
+    }
+  }
+}
+
+.WindowGallery {
+  display: grid;
+  grid-template: {
+    columns: repeat(4, 25vw);
+    rows: repeat(4, 25vw);
+  }
+
+  @media screen and (min-width: 64em) {
+    grid-template: {
+      columns: repeat(4, 12.5vw);
+      rows: repeat(4, 12.5vw);
+    }
+  }
+
+  &-item {
+    overflow: hidden;
+
+    &:nth-of-type(1) {
+      grid-row: 1 / 3;
+      grid-column: 1 / 3;
+    }
+
+    &:nth-of-type(2) {
+      grid-row: 1 / 3;
+      grid-column: 3 / 5;
+    }
+
+    &:nth-of-type(3) {
+      grid-row: 3 / 5;
+      grid-column: 1 / 3;
+    }
+
+    &:nth-of-type(4) {
+      grid-row: 3 / 5;
+      grid-column: 3 / 5;
+    }
+  }
+
+  &-image {
+    max-width: none;
+    width: auto;
+    height: 100%;
+    object-fit: contain;
+    object-position: 50% 50%;
+    transition: all .5s ease-in;
+
+    &:hover { filter: grayscale(1); }
+  }
+
+  &-title, &-clipPath {
+    z-index: 1;
+    grid-row: 2 / 4;
+    grid-column: 2 / 4;
+    align-self: center;
+    text-align: center;
+  }
+
+  &-clipPath {
+    background-color: rgba(0, 150, 217, .5);
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+
+    &:before {
+      display: block;
+      content: '';
+      width: 100%;
+      padding-top: 100%;
+    }
+  }
+
+  &-title {
+    z-index: 2;
+    font-size: 2.5vw;
+    color: #FFF;
+  }
+}

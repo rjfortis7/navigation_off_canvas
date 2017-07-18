@@ -1,0 +1,27 @@
+.Poster {
+  width: 100%;
+  min-height: 100vh;
+  background: {
+    position: center;
+    repeat: no-repeat;
+    size: cover;
+    attachment: fixed;
+  }
+
+  &--opacity {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: inherit;
+    min-height: inherit;
+    background-color: rgba(23, 18, 38, .5);
+  }
+
+  &-title {
+    padding: 0 3vh;
+    font-size: 5vw;
+    text-align: center;
+    letter-spacing: 2vw;
+    color: #FFF;
+  }
+}

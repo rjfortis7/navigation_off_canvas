@@ -1,0 +1,15 @@
+include ./metatags_webapp.pug
+include ../includes/components/navigation_off_canvas.pug
+doctype html
+html(lang="es")
+  head
+    meta(charset="utf-8")
+    meta(name="viewport", content="width=device-width,initial-scale=1")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge,chrome=1")
+    +metatagsWebApp()
+    block metatags
+    link(rel="stylesheet", href="./style.css")
+  body
+    +navigationOffCanvas([ ['Inicio', 'index.html'], ['Acerca', 'acerca.html'], ['Maratones', 'maratones.html'], ['Mujeres', 'mujeres.html'], ['El más veloz', 'el-mas-veloz.html'], ['Contacto', 'contacto.html'] ])
+    block content
+    script(src="./script.js")

@@ -1,0 +1,41 @@
+.Marathons {
+  display: grid;
+  grid-template: {
+    columns: 1fr;
+    rows: repeat(8, auto);
+  }
+
+  &-logos {
+    display: grid;
+    grid-template: {
+      columns: repeat(6, 1fr);
+      rows: 2fr;
+    }
+    justify-items: center;
+    background-color: #FFF;
+
+    &Text {
+      padding: 1rem;
+      font-size: 3vw;
+      grid-column: span 6;
+      grid-row: 1 / 2;
+
+      @media screen and (min-width: 64em) {
+        padding: 2rem;
+        font-size: 2rem;
+      }
+    }
+
+    &Item {
+      background-color: #FFF;
+      transition: all .3s ease-out;
+
+      &:hover {
+        background-color: #FFF;
+        filter: invert(1);
+      }
+    }
+  }
+
+  & .Poster-title span:last-child { letter-spacing: 0; }
+}

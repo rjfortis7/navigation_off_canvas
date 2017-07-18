@@ -1,0 +1,55 @@
+/**
+*   @fileoverview
+*     Componente para aplicar un reseteo de estilos básicos al documento, aplica las siguientes reglas:
+*       * box-sizing: border-box; al documento HTML y todos sus elementos
+*       * padding y margin de todos los elementos a cero
+*       * Evita barras de desplazamiento horizontal al body del documento, múy útil para el Responsive Design
+*       * Asigna la fuente tipográfica y el tamaño base de fuente para el documento HTML
+*     Dependencias: Ninguna
+*
+*   @param {String} $font, nombre de la fuente base del proyecto
+*   @param {String} $font-size, tamaño de la fuente del elemento raíz (html)
+*
+*   @returns {void} no retorna nada
+*
+*   @author Jonathan MirCha <jonmircha@gmail.com>
+*   @version 1.0.0
+*/
+$font: 'Montserrat', sans-serif;
+$font-size: 16px;
+
+html {
+  box-sizing: border-box;
+  font-family: $font;
+  font-size: $font-size;
+}
+
+*,
+*:after,
+*:before {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+  background: linear-gradient(#0096D9, #171226);
+}
+
+a {
+  color: #FFF;
+  transition: all .3s ease-out;
+
+  &:hover {
+    color: #0096D9;
+    opacity: .75;
+  }
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}

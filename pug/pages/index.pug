@@ -1,0 +1,20 @@
+extends ../includes/layout.pug
+include ../includes/components/header_poster.pug
+include ../includes/components/sentence.pug
+include ../includes/components/youtube_video.pug
+block metatags
+  -var title = 'M A R A T Ó N - 4 2 . 1 9 5 km'
+  -var description = 'Bienvenid@, en este sitio encontrarás información sobre el maravilloso mundo de los Maratones.'
+  title= title
+  meta(name="description", content=description)
+  meta(name="application-name", content=title)
+block content
+  main.Home
+    +headerPoster('./img/home-lady-runner.jpg', 'Si entrenas tu mente para correr,', 'todo lo demás será fácil.')
+    +sentence('Correr es una forma de decirle a mi cuerpo', 'que lo quiero.', 'Anónimo')
+    +youtubeVideo('lOCFYBvpJ6s')
+    +sentence('Si te piden que camines un kilómetro,', 'camina dos.', 'Og Mandino')
+    +youtubeVideo('MAsp83b1szg')
+    +sentence('Correr es un deporte mental…', 'y todos nosotros estamos locos.', 'Anónimo')
+    +youtubeVideo('FMB64p11bxs')
+    +sentence('El mundo está dividido en dos tipos de personas:', 'corredores y no corredores', 'Marc Bloom')

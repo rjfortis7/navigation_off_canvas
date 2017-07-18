@@ -1,0 +1,18 @@
+//-/**
+//-*   @fileoverview
+//-*     Componente para generar una imagen responsive con la etiqueta Picture
+//-*     Dependencias: Ninguna
+//-*
+//-*   @param {String} imgBase, nombre de la imagen base de la picture, se define en el archivo pug
+//-*   @param {Array} imgsMQ, arreglo múltiple que contendrá un arreglo por cada imagen responsive que se quiera agregar a la etiqueta picture, con el nombre de la imagen incluyendo extensión en la posicion 0 y su respectiva media queries en la posicion 1, se define en el archivo pug
+//-*
+//-*   @returns {void} no retorna nada
+//-*
+//-*   @author Jonathan MirCha <jonmircha@gmail.com>
+//-*   @version 1.0.0
+//-*/
+mixin picture(imgBase, imgsMQ)
+  picture
+    each img in imgsMQ
+      source(srcset=`./img/${img[0]}`, media=`${img[1]}`)
+    img(src=`./img/${imgBase}`)

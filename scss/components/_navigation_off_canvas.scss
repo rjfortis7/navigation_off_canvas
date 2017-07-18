@@ -1,0 +1,171 @@
+$header-bg-op-0: rgba(23, 18, 38, 0);
+$header-bg-op-1: rgba(23, 18, 38, .9);
+$header-color: #FFF;
+$header-height: 4rem;
+$header-container-width: 1200px;
+
+$logo-url: './img/marathons-logo.svg';
+$logo-width: 4rem;
+$logo-height: 4rem;
+$logo-bg-size: 3.5rem;
+
+$header-area: '. logo hamburger'; // 'logo . hamburger' | '. logo hamburger' | 'hamburger . logo' | 'hamburger logo .'
+$logo-position: center; //start | center | end
+$hamburger-position: end; //start | end
+
+$hamburger-color: #0096D9;
+
+@mixin panel-direction($dir) {
+  @if $dir == left {
+    transform: translateX(-100%);
+    &.is-active { transform: translateX(0); }
+  } @else if $dir == right {
+    transform: translateX(100%);
+    &.is-active { transform: translateX(0); }
+  } @else if $dir == top {
+    transform: translateY(-100%);
+    &.is-active { transform: translateY(0); }
+  } @else if $dir == bottom {
+    transform: translateY(100%);
+    &.is-active { transform: translateY(0); }
+  }
+}
+
+.hamburger:focus {
+  outline: 0;
+  border: 0;
+}
+
+.hamburger-inner,
+.hamburger-inner:after,
+.hamburger-inner:before { background-color: $hamburger-color; }
+
+.u-afterFixed { padding-top: $header-height; }
+
+.Header {
+  position: fixed;
+  z-index: 998;
+  width: 100%;
+  height: $header-height;
+  transition: all .3s ease-out;
+  background-color: $header-bg-op-0;
+
+  &.is-active { background-color: $header-bg-op-1; }
+
+  &-container {
+    margin: auto;
+    max-width: $header-container-width;
+    display: grid;
+    grid-template: {
+      columns: repeat(3, 1fr);
+      rows: $header-height, auto;
+      areas: $header-area
+             'panel panel panel';
+    }
+  }
+}
+
+.Logo {
+  z-index: 999;
+  grid-area: logo;
+  justify-self: $logo-position;
+
+  &-link {
+    display: block;
+    width: $logo-width;
+    height: $logo-height;
+    text-indent: -9999px;
+    background: {
+      image: url($logo-url);
+      size: $logo-bg-size;
+      repeat: no-repeat;
+      position: center;
+    }
+  }
+}
+
+.Panel {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  overflow-y: auto;
+  grid-area: panel;
+  background-color: $header-bg-op-1;
+  transition: transform .3s ease-out;
+  @include panel-direction(left);
+
+  &-button {
+    z-index: 999;
+    grid-area: hamburger;
+    justify-self: $hamburger-position;
+  }
+}
+
+.Menu {
+  margin-top: calc( #{$header-height} + 2rem );
+
+   &-listItem {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    list-style: none;
+  }
+
+  &-link {
+    display: block;
+    padding: 1rem;
+    font: {
+      weight: bold;
+      size: 1.5rem;
+    }
+    color: $hamburger-color;
+    text-decoration: none;
+    transition: all .3s ease-out;
+  }
+
+  &-link:hover {
+    color: $header-color;
+    background-color: $hamburger-color;
+  }
+}
+
+@media screen and (min-width: 64em) {
+  .Header {
+    &-container {
+      grid-template: {
+        columns: auto 1fr;
+        rows: $header-height;
+        areas: 'logo panel';
+      }
+    }
+  }
+
+  .Logo { justify-self: start; }
+
+  .Panel {
+    position: static;
+    overflow-y: visible;
+    transform: translate(0, 0);
+    background-color: transparent;
+
+    &-button { display: none; }
+  }
+
+  .Menu {
+    margin-top: 0;
+
+    &-listItem {
+      flex-direction: row;
+      justify-content: flex-end;
+      align-items: center;
+    }
+
+    &-link { border-top: medium solid transparent; }
+
+    &-link:hover {
+      border-top: medium solid $header-color;
+      background-color: transparent;
+    }
+  }
+}

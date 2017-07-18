@@ -1,0 +1,15 @@
+mixin navigationOffCanvas(menu)
+  header.Header
+    section.Header-container
+      h1.Logo
+        a.Logo-link(href="./") Maratones
+      a.Panel-button(href="#")
+        button.hamburger.hamburger--spring(type="button")
+          span.hamburger-box
+            span.hamburger-inner
+      aside.Panel
+        nav.Menu
+          ul.Menu-listItem
+            each item in menu
+              li.Menu-item
+                a.Menu-link(href=`${item[1]}`)= item[0]

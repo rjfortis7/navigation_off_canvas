@@ -1,0 +1,30 @@
+.VideoHeader {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+
+  &-text {
+    position: absolute;
+    top: 30vh;
+    height: auto;
+    width: 100%;
+    padding: 1rem;
+    font-weight: bold;
+    text-align: center;
+    color: #FFF;
+
+    & > h2 {
+      font-size: 8vw;
+      margin: 1rem auto;
+    }
+
+    & > h3 {
+      font-size: 4vw;
+
+      @media screen and (min-width: 64em) {
+        font-size: 2.5vw;
+      }
+    }
+  }
+}

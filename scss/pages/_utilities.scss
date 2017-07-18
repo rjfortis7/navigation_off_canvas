@@ -1,0 +1,32 @@
+.u-center { text-align: center; }
+
+.u-flexCenter {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.c1xr1 {
+  grid-column: span 1;
+  grid-row: span 1;
+}
+
+.c1xr2 {
+  grid-column: span 1;
+  grid-row: span 2;
+}
+
+.c2xr1 {
+  grid-column: span 2;
+  grid-row: span 1;
+}
+
+.c2xr2 {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.c3xr1 {
+  grid-column: span 3;
+  grid-row: span 1;
+}

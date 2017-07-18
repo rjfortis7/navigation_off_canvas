@@ -1,0 +1,6 @@
+mixin headerVideo(url, title, text)
+  article.VideoHeader.u-firstContent
+    .VideoHeader-text
+      h2= title
+      h3= text
+    video.VideoHeader-video(src=`./img/${url}.mp4`, poster=`./img/${url}.jpg`, muted, loop)

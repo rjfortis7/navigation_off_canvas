@@ -1,0 +1,63 @@
+.ContactForm {
+  padding: 2rem;
+
+  &-title {
+    font-size: 10vw;
+    color: #FFF;
+
+    @media screen and (min-width:64em) { font-size: 5vw; }
+  }
+
+  & [required]:invalid { background-color: rgba(220, 20, 60, .2); }
+
+  & [required]:valid { background-color: rgba(60, 179, 113, .2); }
+
+  & [required]:focus {
+    background-color: rgba(255, 255, 255, .2);
+    outline: 0;
+  }
+
+  & > input,
+  & > textarea {
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    margin: 1rem auto;
+    border: 0;
+    border-bottom: medium solid #0096D9;
+    background-color: transparent;
+    color: #FFF;
+    font: {
+      family: 'Montserrat';
+      size: 1.5rem;
+      weight: bold;
+    }
+    resize: none;
+  }
+
+  & > input[type="submit"] {
+    margin: 2rem auto 0;
+    font-size: 2rem;
+    border: medium solid transparent;
+    background-color: #0096D9;
+    color: #FFF;
+    transition: all .3s ease-out;
+    @media screen and (min-width:48em) { width: 70%; }
+
+    &:hover {
+      cursor: pointer;
+      background-color: #FFF;
+      color: #0096D9;
+      border: medium solid #0096D9;
+    }
+  }
+
+  & > *::-webkit-input-placeholder {
+    color: #FFF;
+    font: {
+      family: 'Montserrat';
+      size: 1.5rem;
+      weight: bold;
+    }
+  }
+}

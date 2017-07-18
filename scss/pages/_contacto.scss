@@ -1,0 +1,40 @@
+.Contact {
+  width: 100%;
+  min-height: 100vh;
+  background: {
+    image: url('./img/contacto-hola.jpg');
+    position: center top;
+    repeat: no-repeat;
+    size: cover;
+  }
+
+  display: grid;
+  grid-template: {
+    columns: 100%;
+    rows: repeat(3, auto);
+    areas: 'video'
+           'info'
+           'map';
+  }
+
+  @media screen and (min-width: 64em) {
+    grid-template: {
+      columns: repeat(3, 1fr);
+      rows: 100vh 1fr;
+      areas: 'video video video'
+             'map info info';
+    }
+  }
+
+  &-video { grid-area: video; }
+
+  &-info {
+    grid-area: info;
+    width: inherit;
+    min-height: inherit;
+    background-color: rgba(23, 18, 38, .5);
+  }
+
+}
+
+.GoogleMap { grid-area: map; }
